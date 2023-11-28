@@ -84,10 +84,21 @@ form div {
   position: relative;
 
 }
+form div span {
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  color: rgb(187, 32, 32);
+}
 form input {
   width: 100%;
   padding: 10px;
   border-radius: 4px;
   margin-top: 5px;
   border: none;
+}
+.active {
+ color: white;
+ text-shadow: 0 0 10px white;
+ 
 }

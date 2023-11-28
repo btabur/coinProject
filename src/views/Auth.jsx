@@ -1,6 +1,6 @@
 import { useFormik } from 'formik'
 import React from 'react'
-import InputField from '../components/InputField'
+import InputField from './InputField'
 import { inputs } from '../constans'
 import { schema } from '../schema'
 
@@ -17,23 +17,23 @@ const Auth = () => {
         },
         //form gönderildiğinde çalışan fonksiyon
         onSubmit:(values,actions)=> {
-             console.log(values)
+            localStorage('user',JSON.stringify(values))
+            actions.resetForm()
         },
-        // todo : doğrulama şeması
-
         validationSchema:schema
     })
-
-    console.log(formik)
   
   return (
-    <div>
+    <div className='auth-page'>
         <div className="container">
-            <h2 className='text-center py-5 '>Coinmania</h2>
+            <h2 className='d-flex gap-3 justify-content-center align-items-center  text-center py-5 '>
+                <img height={60} src="/c-logo.png" alt="coin-logo" />
+                <span>Coin Market</span>
+            </h2>
       
         {/* form alanı */}
-        <form>
-           {inputs.map((data)=> <InputField formik={formik} data={data}/>)}
+        <form onSubmit={formik.handleSubmit}>
+           {inputs.map((data,i)=> <InputField key={i} formik={formik} data={data}/>)}
            <button type='submit'>Kaydol</button>
         </form>
         </div>
