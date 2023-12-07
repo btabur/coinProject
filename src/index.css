@@ -102,3 +102,9 @@ form input {
  text-shadow: 0 0 10px white;
  
 }
+.up {
+  color: greenyellow !important;
+}
+.down {
+  color: red !important;
+}
