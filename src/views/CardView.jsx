@@ -1,9 +1,12 @@
 import millify from 'millify'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const CardView = ({coin}) => {
+  const navigate = useNavigate()
   return (
-    <div className='coin-card d-flex flex-column justify-content-between border rounded p-3'>
+    <div onClick={()=> navigate(`/coins/${coin.id}`)}
+    className='coin-card d-flex flex-column justify-content-between border rounded p-3'>
       <div>
         <h3>{coin.name}</h3>
         <h6>{coin.symbol}</h6>

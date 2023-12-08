@@ -14,7 +14,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Auth/>}/>
         <Route path='/home' element={<HomeController/>}/>
-        <Route path='/coin:id' element={<DetailController/>}/>
+        <Route path='/coins/:id' element={<DetailController/>}/>
       </Routes>
    </BrowserRouter>
   )

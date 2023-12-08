@@ -3,7 +3,9 @@ import {FaBitcoin} from 'react-icons/fa'
 import millify from 'millify'
 import CardView from './CardView'
 import LoadMoreButtonController from '../controllers/LoadMoreButtonController'
+import { useNavigate } from 'react-router-dom'
 const HomeView = ({coins}) => {
+  const navigate = useNavigate()
   return (
     <div className='container-xl mt-5'>
       <h4 className='d-flex align-items-center gap-3'>
@@ -32,7 +34,8 @@ const HomeView = ({coins}) => {
         </thead>
         <tbody>
           {coins.map((coin,i)=> (
-            <tr key={i}>
+            <tr onClick={()=> navigate(`/coins/${coin.id}`)}
+             key={i}>
               <td>{coin.rank}</td>
               <td className='d-flex'>
                 <span className='text-warning fw-bold me-2'>{coin.symbol}</span>
