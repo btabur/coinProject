@@ -1,6 +1,8 @@
 import React from 'react'
 import {FaBitcoin} from 'react-icons/fa'
 import millify from 'millify'
+import CardView from './CardView'
+import LoadMoreButtonController from '../controllers/LoadMoreButtonController'
 const HomeView = ({coins}) => {
   return (
     <div className='container-xl mt-5'>
@@ -12,6 +14,11 @@ const HomeView = ({coins}) => {
       Coin Listesi, dünya genelindeki kripto para birimlerini ve
         dijital varlıkları takip etmek için mükemmel bir kaynaktır
       </p>
+      <div className='d-flex gap-4 justify-content-around '>
+        {coins.slice(0,3).map((coin,i)=> (
+          <CardView key={i} coin={coin}/>
+        ))}
+      </div>
       <table className='table table-dark table-hover mt-5'>
         <thead>
           <tr>
@@ -40,6 +47,7 @@ const HomeView = ({coins}) => {
           ))}
         </tbody>
       </table>
+      <LoadMoreButtonController/>
     </div>
   )
 }
