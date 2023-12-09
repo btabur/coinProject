@@ -58,3 +58,12 @@ export const schema = yup.object().shape({
     confirmPassword:''
 })
 ```
+
+# coin project 
+- coin api den veriler çekildi ve detay sayfasında çizgi ve sütün grafiklerinde bir coin nin detayları gösterildi.
+
+![](./public/ekran1.png)
+
+![](./public/ekran2.png)
+
+![](./public/ekran3.png)

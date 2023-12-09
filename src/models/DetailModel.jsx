@@ -35,5 +35,15 @@ export class DetailModel {
                 value: this.coin?.volumeUsd24Hr
             }
         ]
+        this.chartData = {
+            labels:history?.map((i)=>
+             new Date(i.date).toLocaleDateString()),
+            datasets: [
+                {
+                    label:'Fiyat',
+                    data: history?.map((i)=> +i.priceUsd)
+                }
+            ]
+        }
     }
 } 

@@ -1,5 +1,7 @@
 import millify from 'millify'
 import React from 'react'
+import {Chart as ChartJs} from 'chart.js/auto'
+import {Line, Bar} from 'react-chartjs-2'
 
 const Detailview = ({model,coin}) => {
   return (
@@ -13,7 +15,7 @@ const Detailview = ({model,coin}) => {
         <section className='col-md-3 d-flex flex-column gap-5 p-5 p-md-2'>
           {model.infoFields.map((data)=> (
             <div className='text-bg-light rounded shadow-lg text-center py-4 px-2 d-flex flex-column  gap-2'>
-              <span>{data.icon}</span>
+              <span className='fs-2'>{data.icon}</span>
               <h3>{data.label}</h3>
               <p>{millify(data.value)}</p>
             </div>
@@ -21,7 +23,14 @@ const Detailview = ({model,coin}) => {
         </section>
 
         {/* istatistikler */}
-        <section className='col-md-9'></section>
+        <section className='col-md-9'>
+          <Line 
+          data={model?.chartData}
+          />
+          <Bar 
+          data = {model?.chartData}
+          />
+        </section>
       </div>
       
     </div>
